@@ -4,7 +4,6 @@ import camb
 from camb import model, initialpower
 
 def make_cl(r=0, return_cl=True, Alens=1., lmax=2500, tau=0.06):
-    lmax = float(lmax)
     pars = camb.CAMBparams()
     pars.WantTensors = True
     pars.set_cosmology(H0=67.86682, ombh2=0.02227716, omch2=0.1184293, mnu=0.06, omk=0, tau=tau)
@@ -12,7 +11,7 @@ def make_cl(r=0, return_cl=True, Alens=1., lmax=2500, tau=0.06):
     pars.set_for_lmax(lmax-50, lens_potential_accuracy=0)
     results = camb.get_results(pars)
     powers =results.get_cmb_power_spectra(pars, CMB_unit='muK')
-    if Alens=0:
+    if Alens==0:
         totCL = powers['unlensed_total'].T
     else:
         tot_tesor = powers['tensor'].T
