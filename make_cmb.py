@@ -14,8 +14,8 @@ def make_cl(r=0, return_cl=True, Alens=1., lmax=2500, tau=0.06):
     if Alens==0:
         totCL = powers['unlensed_total'].T
     else:
-        tot_tesor = powers['tensor'].T
-        tot_lens = powers['lensed_scalar'].T*Alen
+        tot_tensor = powers['tensor'].T
+        tot_lens = powers['lensed_scalar'].T*Alens
         totCL = tot_tensor+tot_lens
     if return_cl:
         l = np.arange(len(totCL[0]))
